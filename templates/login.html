@@ -1,0 +1,33 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename= 'login.css')}}">
+	<title>Loginpage</title>
+</head>
+<body background="{{ url_for('static', filename='la buena111.png') }}">
+
+
+
+
+	<div class="login">
+
+
+		<center><h2>Iniciar Sesión</h2></center>
+
+		<form method="post">
+			<input type="text" class="texto" name="usuarios" placeholder="Correo electronico">
+			<br>
+			<br>
+			<br>
+			<input type="password" class="texto" name="password" placeholder="Contraseña">
+			<br>
+			<br>
+			<input type="submit" name="registro" value="login">
+			<input type="button" name="registro" value="registrarse" onclick="location.href='{{url_for('registrarse')}}'">
+		</form>
+	</div>
+
+<div class="logo">
+	
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+.login{
+
+	width: 35%;
+	height: 31%;
+	right: 26%;
+	top: 35%;
+	position: absolute;
+	z-index: 1;
+
+}
+
+.texto{
+	height: 56px;
+	width: 100%;
+	position: relative;
+	border-radius: 10px;
+	font-size: 20px;
+	z-index: 1;
+
+}
+.logo {
+    background-image: url(logo.png);
+    width: 55%;
+    height: 55%;
+    right: 40%;
+    top: 25%; 
+    position: fixed;
+    background-repeat: no-repeat;
+}

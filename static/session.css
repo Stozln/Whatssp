@@ -1,0 +1,10 @@
+.menu{
+	width: 40%;
+	height: 100%;
+	position: absolute;
+	margin: 1px;
+	border-color: black;
+	float: left;
+	left: 0;
+	border: 1px;
+}
