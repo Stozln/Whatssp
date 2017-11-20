@@ -6,8 +6,49 @@
 
 </head>
 <body background="{{ url_for('static', filename='la buena111.png') }}">
+	
 	<div class="menu">
-		<h1>laputa</h1>
+		<form method="post">
+				
+			
+			<center>
+				<input type="text" name="Texto" class="search" placeholder="Search...">
+				<input type="submit" name="1" value="Buscar">
+
+				
+			</center>
+
+			<br>
+			<br>
+			<br>
+			<input type="submit" name="1" class="botones" value="Configuracion">
+			<br>
+			<input type="submit" name="1" class="botones" value="Micuenta">
+			<br>
+
+			<input type="submit" name="1" class="botones" value="Seguridad">
+			<br>
+			<input type="button" name="salir" value="Salir" onclick="location.href='{{url_for('login')}}'">
+		</form>
+
+
+
+		
+	</div>
+
+	<div class="chats">
+		<div class="chat2">
+			
+		</div>
+
+
+		<div class="chat3">
+			<div class="chat4">
+				
+			</div>
+			
+		</div>
+
 		
 	</div>
 

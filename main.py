@@ -9,12 +9,15 @@ app=Flask(__name__)
 
 usuarios=["admin"]
 passwords=["1234"]
+Amigos=[]
+Mensajes=[]
+Mensasjes2=[]
 
 
 @app.route("/registrarse",methods=['GET','POST'])
 
 def registrarse():
-	global usuarios, password
+	global usuarios, password, Mensajes, Mensasjes2
 
 	if request.method=="POST":
 		if request.form["usuarios"]!="" and request.form["password"]!="" and request.form["password2"]!="":
@@ -31,6 +34,9 @@ def registrarse():
 				else:
 					usuarios.append(usuario)
 					passwords.append(password)
+					Mensasjes2.append([])
+					Mensajes.append([])
+					Amigos.append([])
 					return redirect(url_for("login"))
 
 
@@ -42,6 +48,7 @@ def login():
 	global usuarios, password
 
 	if request.method=="POST":
+
 		if request.form["usuarios"]!="" and request.form["password"]!="":
 			usuario=request.form["usuarios"]
 			password=request.form["password"]
@@ -49,6 +56,8 @@ def login():
 			if usuario in usuarios and password in passwords:
 				i=usuarios.index(usuario)
 				if password == passwords[i]:
+					session["id"]=usuarios.index(usuario)
+					session["loged"]=True
 					return redirect(url_for("session"))
 				else:
 					print("key invalida")
@@ -59,7 +68,39 @@ def login():
 @app.route("/session",methods=['GET','POST'])
 
 def session():
-	return render_template("session.html")
+	if request.method=="POST":
 
+		if 	request.form["1"]=="Buscar" and request.form["Texto"]!="":
+
+			usuario=request.form["Texto"]
+			if usuario in usuarios:
+				Amigos.append(usuario)
+			else:
+				print("el usuario no existe")
+		else:
+			if request.form["1"]=="Configuracion":
+				return redirect(url_for("config"))
+			else:
+				if request.form["1"]=="Micuenta":
+					return redirect(url_for("cuenta"))
+				else:
+					if request.form["1"]=="Seguridad":
+						return redirect(url_for("Seguridad"))
+	return render_template("session.html")
+@app.route("/config")
+def config():
+	return "pagina Configuracion"
+@app.route("/cuenta")
+def cuenta():
+	return "pagina cuenta"
+@app.route("/Seguridad")
+def Seguridad():
+	return "pagina Seguridad"
 if __name__=="__main__":
 	app.run(debug=True)
+
+
+
+
+
+	
